@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --primary_color:#004225;
+    --light-green:#19553B;
+    --light-cream:#F1F1EB;
+    --lines:#608E77;
+    --hover:#E3E9E7;
+    --iconBg:#C2CDC1;
+    --darkTextColor:#1A1A1A;
+    --headingTextKarkiColor:#C9A227;
+    --karkiHover:#E2DAC4;
+    --bodeBackgroundColor:#F8F6F1;
+    --IconBackgroundColor:#E5ECE9;
+    --navlink:#6B7280;
+    --textGrayColor:#7D7280;
+    --whiteTextColor:#FFF;
+
+    /*FONTS*/
+    --fontFamily:"Nunito", sans-serif;
+    --fontSizeBase:1rem;
+    --fontSizeLarge:1.25rem;
+    --fontSizeXtraLarge:2rem;
+    
+    /*MAX WIDTH*/
+    --maxWidth:1200px;
+
+    /*SPACING*/
+    --spacingSmall:0.5rem;
+    --spacingMedium:1rem;
+    --spacimgLarge:2rem;
+}
+.heroSection{
+    width: min(100% - 2rem, var(--maxWidth));
+    margin: 100px auto 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.heroSectionLeft{
+    flex: 1;
+}
+
+.badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(31, 138, 112, .12);
+    color: var(--primary_color);
+    font-size: .85rem;
+    font-weight: 700;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    letter-spacing: .5px;
+}
+
+.heroSectionLeft h1{
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    line-height: 1.3;
+    font-weight: 800;
+    color: var(--darkTextColor);
+    margin-bottom: 10px;
+}
+.heroSectionLeft h1 span{
+    color: var(--headingTextKarkiColor);
+}
+
+.heroSectionLeft p{
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--t);
+    max-width: 620px;
+    margin-bottom: 35px;
+}
+.heroButtons{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.primaryBtn,
+.secondaryBtn{
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: .3s ease;
+}
+.primaryBtn{
+    background: var(--primary_color);
+    color: white;
+}
+.primaryBtn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,.15);
+}
+.secondaryBtn{
+    border: 2px solid var(--primary_color);
+    color: var(--primary_color);
+}
+.secondaryBtn:hover{
+    background: var(--primary_color);
+    color: white;
+}
+.heroSectionRight{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heroSectionRight img{
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    object-fit: cover;
+    animation: floatImage 5s ease-in-out infinite;
+}
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-12px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@media (max-width:991px){
+    .heroSection{
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .heroSectionLeft p{
+        margin-inline: auto;
+    }
+    .heroButtons{
+        justify-content: center;
+    }
+}
+
+@media (max-width:768px){
+    .heroSection{
+        margin-top: 150px;
+    }
+    .heroSectionLeft h1{
+        font-size: 2.5rem;
+        text-align: left;
+    }
+    .heroSectionLeft p{
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media (max-width:480px){
+    .heroSection{
+        margin-top: 130px;
+        gap: 35px;
+    }
+    .badge{
+        font-size: .75rem;
+        padding: 7px 15px;
+    }
+    .heroSectionLeft h1{
+        font-size: 2rem;
+    }
+    .heroButtons{
+        flex-direction: column;
+    }
+    .primaryBtn,
+    .secondaryBtn{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/*INTRODUCTION ABOUT SECTION*/
+.aboutSection{
+    width: min(100% - 1rem, var(--maxWidth));
+    margin: 10px auto;
+    background-color: var(--whiteTextColor);
+    padding-inline: 0;
+}
+
+.sectionHeading{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sectionTag{
+    display: inline-block;
+    color: var(--primary_color);
+    font-size: .9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.sectionHeading h2{
+    font-size: clamp(2rem,3vw,3.5rem);
+    line-height: 1.1;
+    color: var(--darkTextColor);
+}
+
+
+.aboutContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: stretch;
+}
+.aboutLeft,
+.aboutRight{
+    border-radius: 25px;
+    padding: 45px;
+    overflow: hidden;
+    position: relative;
+}
+.aboutLeft{
+    background: var(--primary_color);
+    color: white;
+}
+
+.aboutRight{
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Decorative circles */
+.aboutLeft::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(255,255,255,.05);
+    border-radius:50%;
+    top:-80px;
+    right:-70px;
+}
+.aboutRight::before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:#f8f4eb;
+    border-radius:50%;
+    top:-80px;
+    right:-70px;
+}
+
+
+.aboutBadge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--headingTextKarkiColor);
+    padding:8px 12px;
+    border-radius:50px;
+    font-size:.8rem;
+    font-weight:500;
+    margin-bottom:15px;
+    position:relative;
+    z-index:2;
+    color: var(--darkTextColor);
+}
+
+.aboutBadge.light{
+    background:#F8F6F1;
+    color:var(--headingTextKarkiColor);
+}
+
+.aboutLeft h3,
+.aboutRight h3{
+    font-size:2rem;
+    line-height:1.1;
+    margin-bottom:20px;
+    position:relative;
+    z-index:2;
+}
+
+.aboutRight h3{
+    color:var(--headings);
+}
+
+.aboutLeft p{
+    color:var(--whiteTextColor);
+    line-height:1.5;
+    margin-bottom:35px;
+    position:relative;
+    font-size: .95rem;
+    z-index:2;
+}
+
+.aboutRight > p{
+    color:var(--paragraphColor);
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.aboutLeft ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:35px;
+    position:relative;
+    z-index:2;
+}
+
+.aboutLeft li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.9rem;
+}
+
+.aboutLeft li .material-symbols-outlined{
+    background:rgba(255,255,255,.12);
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+}
+
+.aboutMember{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:20px;
+    background:rgba(255,255,255,.08);
+    border-radius:18px;
+}
+
+.aboutMember img{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.aboutMember h4{
+    font-size:1rem;
+    margin-bottom:4px;
+}
+
+.aboutMember p{
+    margin:0;
+    color:rgba(255,255,255,.75);
+    font-size:.9rem;
+}
+
+
+.aboutGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    
+}
+.infoCard{
+    padding:15px;
+    border:1px solid #ececec;
+    border-radius:18px;
+    transition:.35s;
+    background:#F8F6F1;
+}
+.infoCardFlex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.infoCard:hover{
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.infoCard .material-symbols-outlined{
+    width:40px;
+    height:40px;
+    border-radius:50px;
+    display:grid;
+    place-items:center;
+    background:#fff;
+    color:var(--primary_color);
+    margin-bottom:10px;
+}
+
+.infoCard h4{
+    margin-bottom:5px;
+}
+
+.infoCard p{
+    font-size:.8rem;
+    line-height:1.4;
+    color:var(--paragraphColor);
+}
+
+/*==========================
+        RESPONSIVE
+===========================*/
+
+@media(max-width:992px){
+
+    .aboutContainer{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .aboutLeft,
+    .aboutRight{
+        padding:35px 25px;
+    }
+
+    .aboutGrid{
+        grid-template-columns:1fr;
+    }
+
+    .aboutLeft h3,
+    .aboutRight h3{
+        font-size:1.7rem;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .aboutSection{
+        margin:80px auto;
+    }
+
+    .sectionHeading h2{
+        font-size:2rem;
+    }
+
+    .aboutMember{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
