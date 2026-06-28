@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
     --primary_color:#004225;
     --light-green:#19553B;
@@ -90,7 +90,7 @@
     transition: .3s ease;
 }
 .primaryBtn{
-    background: var(--primary_color);
+    background: var(--lines);
     color: white;
 }
 .primaryBtn:hover{
@@ -365,7 +365,7 @@
     
 }
 .infoCard{
-    padding:15px;
+    padding:10px 15px;
     border:1px solid #ececec;
     border-radius:18px;
     transition:.35s;
@@ -375,6 +375,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.infoCardFlex h4{
+    align-self: flex-start;
 }
 .infoCard:hover{
     box-shadow:0 12px 25px rgba(0,0,0,.08);
@@ -401,10 +404,6 @@
     color:var(--paragraphColor);
 }
 
-/*==========================
-        RESPONSIVE
-===========================*/
-
 @media(max-width:992px){
 
     .aboutContainer{
@@ -414,29 +413,23 @@
 }
 
 @media(max-width:768px){
-
     .aboutLeft,
     .aboutRight{
         padding:35px 25px;
     }
-
     .aboutGrid{
         grid-template-columns:1fr;
     }
-
     .aboutLeft h3,
     .aboutRight h3{
         font-size:1.7rem;
     }
-
 }
 
 @media(max-width:480px){
-
     .aboutSection{
         margin:80px auto;
     }
-
     .sectionHeading h2{
         font-size:2rem;
     }
@@ -445,5 +438,478 @@
         flex-direction:column;
         text-align:center;
     }
+}
+
+
+
+/*ACTIVITIES OF LUAC SECTION*/
+.categories{
+    background: var(--bodeBackgroundColor);
+}
+.sectionHeader{
+    max-width:700px;
+    margin:0 auto 4rem;
+    text-align:center;
+}
+.sectionTag{
+    display:inline-block;
+    margin-bottom:1rem;
+    font-size:.85rem;
+    font-weight:500;
+    letter-spacing:2px;
+    color:var(--headingTextKarkiColor);
+}
+.sectionTitle{
+    margin-bottom:1rem;
+    font-size:clamp(2rem,3vw,3.5rem);
+    line-height:1.1;
+    color:var(--darkTextColor);
+}
+.sectionDescription{
+    font-size:1.1rem;
+    line-height:1.7;
+    color:var(--textGrayColor);
+}
+
+.categoriesGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.5rem;
+}
+
+.categoriesCarousel{
+    display:none;
+}
+.categoryCard{
+    background:#fff;
+    border:1px solid var(--karkiHover);
+    border-radius:10px;
+    padding:1.5rem;
+    transition:.3s ease;
+}
+
+.categoryCard:hover{
+    border-color:var(--primary_color);
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+}
+
+.cardHeader{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    margin-bottom:1rem;
+}
+
+.cardHeader h3{
+    margin:0;
+    font-size:1.1rem;
+    font-weight:700;
+    line-height:1.1;
+    color:var(--darkTextColor);
+}
+.cardIcon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+    width:50px;
+    height:50px;
+    border-radius:15px;
+    background:var(--bodeBackgroundColor);
+    transition:.3s ease;
+    border: 1px solid var(--karkiHover);
 
 }
+.cardIcon span{
+    font-size:1.5rem;
+    color: var(--headingTextKarkiColor);
+}
+.categoryCard:hover .cardIcon{
+    background:var(--primary_color);
+}
+.categoryCard:hover .cardIcon span{
+    color:#fff;
+}
+
+.categoryCard p{
+    margin:0;
+    font-size:.9rem;
+    line-height:1.1;
+    color:var(--textGrayColor);
+}
+
+
+@media (max-width:992px){
+    .categoriesGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+@media (max-width:768px){
+    .categoriesGrid{
+        display:none;
+    }
+
+    .categoriesCarousel{
+        display:block;
+        overflow:hidden;
+    }
+    .carouselTrack{
+    display:flex;
+    gap:1rem;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    padding:0 1rem 1rem;
+    touch-action:pan-x;
+    }
+    .carouselTrack::-webkit-scrollbar{
+        display:none;
+    }
+    .carouselTrack .categoryCard{
+        flex:0 0 85%;
+        scroll-snap-align:start;
+    }
+    .carouselDots{
+        display:flex;
+        justify-content:center;
+        gap:.5rem;
+        margin-top:1.5rem;
+    }
+    .dot{
+        width:10px;
+        height:10px;
+        border-radius:50%;
+        background:#d6d6d6;
+    }
+    .dot.active{
+        width:28px;
+        border-radius:20px;
+        background:var(--primary_color);
+    }
+    
+}
+
+@media (max-width:480px){
+    .sectionHeader{
+        margin:0 auto 1rem;
+        text-align:left;
+    }
+    .sectionTitle{
+        font-size:2rem;
+    }
+    .sectionDescription{
+        font-size:.8rem;
+    }
+    .carouselTrack .categoryCard{
+        flex:0 0 100%;
+    }
+    .cardHeader h3{
+        font-size:1.rem;
+    }
+    .cardIcon{
+        width:50px;
+        height:50px;
+    }
+    .cardIcon span{
+        font-size:1.6rem;
+    }
+
+}
+
+
+
+/*WHY JOIN LUAC*/
+.whyJoin{
+    background: var(--whiteTextColor);
+    min-height: 90vh;
+    align-items: center;
+    margin: 4rem auto;
+}
+
+.whyJoinGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5rem;
+    align-items:center;
+}
+.whyJoinContent .sectionTag{
+    display:inline-block;
+    margin-bottom:1rem;
+    color:var(--headingTextKarkiColor);
+    letter-spacing:2px;
+    font-size:.85rem;
+    font-weight:700;
+}
+.whyJoinContent .sectionTitle{
+    font-size:clamp(2.3rem,3.2vw,3rem);
+    line-height:1.1;
+    color:var(--darkTextColor);
+    margin-bottom:1.5rem;
+}
+
+.whyJoinContent .sectionDescription{
+    color:var(--textGrayColor);
+    line-height:1.4;
+    font-size:1rem;
+    margin-bottom:2rem;
+}
+
+.benefitsGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1rem;
+}
+
+.benefitCard{
+    display:flex;
+    align-items:flex-start;
+    gap:1rem;
+}
+
+.benefitCard span{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    border-radius:15px;
+    background:var(--whiteTextColor);
+    color:var(--headingTextKarkiColor);
+    font-size:1.5rem;
+    transition:.3s ease;
+}
+
+.benefitCard h3{
+    margin-bottom:.1rem;
+    font-size:1rem;
+    color:var(--darkTextColor);
+}
+
+.benefitCard p{
+    color:var(--textGrayColor);
+    line-height:1.2;
+    font-size:.8rem;
+}
+.benefitCard:hover span{
+    background:var(--headingTextKarkiColor);
+    color:#fff;
+}
+
+.joinButton{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    padding:1rem 1.5rem;
+    background:var(--primary_color);
+    color:#fff;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s ease;
+}
+.joinButton:hover{
+    box-shadow:0 18px 30px rgba(0,66,37,.25);
+}
+
+@media (max-width:992px){
+    .whyJoinGrid{
+        grid-template-columns:1fr;
+        gap:4rem;
+    }
+}
+
+@media (max-width:768px){
+    .benefitsGrid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media (max-width:480px){
+    .whyJoinContent .sectionTitle{
+        font-size:2rem;
+    }
+    .whyJoinContent .sectionDescription{
+        font-size:.8rem;
+    }
+    .benefitCard{
+        grid-template-columns: 1fr 1fr;
+        gap:.2rem;
+    }
+    .benefitCard span{
+        width:40px;
+        height:40px;
+        font-size:1rem;
+    }
+    .benefitCard h3{
+        font-size:1rem;
+    }
+
+}
+
+
+
+/*FOOTER SECTION*/
+.footer {
+    background: var(--darkTextColor);
+    color: var(--navlink);
+}
+.footerCTA {
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--darkTextColor);
+}
+
+.footerCTA h2 {
+    font-size: 3rem;
+    margin: 15px 0;
+    font-family: "Oswald", sans-serif;
+    line-height: 1.3;
+}
+
+.footerCTA p {
+    max-width: 600px;
+    margin: auto;
+    color: var(--navlink);
+}
+
+.footerStats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.stat h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+    line-height: 1.1;
+    color: var(--whiteTextColor);
+}
+
+.stat p {
+    color: var(--navlink);
+}
+
+.footerMain {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 20px 20px;
+}
+
+.footerBrand h2 {
+    margin-bottom: 10px;
+    color: var(--whiteTextColor);
+}
+
+.footerBrand p {
+    color: var(--navlink);
+    line-height: 1.2;
+    
+    
+}
+.footerContact{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.footerContact p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    color: var(--navlink);
+
+}
+
+.footerContact .material-symbols-outlined {
+    font-size: 18px;
+    color: var(--headingTextKarkiColor);
+}
+.footerCol h3 {
+    margin-bottom: 10px;
+    color: var(--whiteTextColor);
+    font-weight: 400;
+}
+
+.footerCol a {
+    display: block;
+    color: var(--navlink);
+    margin-bottom: 5px;
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.3s;
+}
+.footerCol a:hover {
+    color: var(--headingTextKarkiColor);
+}
+.footerBottom {
+    border-top: 1px solid var(--navlink);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: var(--navlink);
+}
+
+.footerBottomLinks a {
+    margin-left: 15px;
+    color: var(--navlink);
+    text-decoration: none;
+}
+
+.footerBottomLinks a:hover {
+    color: var(--headingTextKarkiColor);
+}
+@media (max-width: 900px) {
+    .footerMain {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footerStats {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footerMain {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .footerBottom {
+        flex-direction: column;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .footerContact p {
+        justify-content: center;
+    }
+    .footerCTA {
+    text-align: left;
+    background: var(--darkTextColor);
+    }
+    .footerCTA h2 {
+        font-size: 2rem;
+        margin: 10px 0;
+        font-family: "Oswald", sans-serif;
+        line-height: 1.1;
+    }
+
+    .footerCTA p {
+        color: var(--navlink);
+    }
+
+
+    .footerStats .stats{
+        display: flex;
+        align-items: flex-start;
+        margin-left: 5px;
+    }
+    }
